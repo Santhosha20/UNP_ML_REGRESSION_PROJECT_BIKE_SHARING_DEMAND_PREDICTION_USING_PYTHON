@@ -1,5 +1,11 @@
 # Bike Sharing Demand Prediction: A Comparative Regression Study of Environmental vs. Temporal Features
 
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
+[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange.svg)](https://tensorflow.org/)
+[![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-Latest-yellowgreen.svg)](https://scikit-learn.org/)
+[![XGBoost](https://img.shields.io/badge/XGBoost-Accelerated-red.svg)](https://xgboost.readthedocs.io/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+
 ---
 
 ## Project Links & Resources
