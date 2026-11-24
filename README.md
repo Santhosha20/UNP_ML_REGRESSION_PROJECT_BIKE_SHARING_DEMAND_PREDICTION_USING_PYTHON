@@ -84,16 +84,19 @@ The dataset corresponds to two-year historical logs (2011–2012) from the **Cap
 ## Project Methodology & Step-by-Step Execution
 
 ### 1. Data Preparation & Cleaning
+
 * **Data Inspection & Missing Value Audit:** Verified dataset dimensions and confirmed that **0 missing/null values** exist across all 17 columns. Data types were converted into suitable formats for numerical scaling and categorical dummy encoding.
 * **Target Variable Transformation:** Because `cnt` showed severe positive right-skewness (`skewness > 1.2`), a logarithmic transformation (`log_cnt = ln(cnt + 1) = np.log1p(cnt)`) was applied to stabilize variance, approximate a normal distribution, and prevent negative count predictions when back-transformed via `exp(y_pred) - 1`.
 * **Outlier Detection & Removal (IQR):** Applied Interquartile Range filtering (`Q1 - 1.5 × IQR` to `Q3 + 1.5 × IQR`) across numerical features (`temp`: 0, `hum`: 22, `windspeed`: 342, `log_cnt`: 158). Removed **512 outliers** (2.9% of the data), refining the dataset from **17,379 to 16,867 clean records**.
 
 ### 2. Feature Analysis & Engineering
+
 * **Correlation & Multicollinearity (VIF):** Evaluated Pearson and Phi-K non-linear correlations alongside **Variance Inflation Factor (VIF)** scores (`season_SPRING`: 3.75, `temp`: 3.06, `season_WINTER`: 2.63, `season_SUMMER`: 1.87, `hum`: 1.60, `weathersit_Snow/Rain`: 1.25, `weathersit_Mist/Cloudy`: 1.16, `windspeed`: 1.13, `workingday`: 1.01). All values remained well below 5.0, confirming coefficient stability.
 * **Experiment 1 Encoding (Without Time):** Dropped all temporal columns (`yr`, `mnth`, `hr`, `holiday`, `weekday`) and dummy-encoded `season` and `weathersit` (`drop_first=True`), yielding **9 predictor features**.
 * **Experiment 2 Encoding (With Time):** Retained `yr` (binary) and one-hot dummy-encoded `hr`, `mnth`, `weekday`, `workingday`, `season`, and `weathersit`, yielding **74–75 predictor features** to capture commuter peaks and seasonal trends.
 
 ### 3. Validation & Model Benchmarking
+
 * **Multi-Split Validation & Scaling:** Evaluated baseline models across **5 train/test splits** (80/20, 75/25, 70/30, 65/35, and 60/40). Fitted `StandardScaler` strictly on training folds before transforming test folds to prevent data leakage.
 * **Classical ML Regressors:** Benchmarked 8 algorithms across both experiments:
   1. Linear Regression (OLS)
@@ -106,6 +109,7 @@ The dataset corresponds to two-year historical logs (2011–2012) from the **Cap
   8. Extreme Gradient Boosting Regressor (XGBoost)
 
 ### 4. Hyperparameter Tuning & Deep Learning (ANN)
+
 * **GridSearchCV Optimization:** Performed 5-Fold Cross Validation (`cv=5`, optimizing `neg_mean_squared_error`) on the 80/20 split:
   * **KNN:** `n_neighbors` (`[3, 5, 7, 9, 11]`), `weights` (`'uniform'`, `'distance'`)
   * **Linear SVR:** `C` (`[0.01, 0.1, 1, 10]`), `epsilon` (`[0.0, 0.1, 0.2]`)
