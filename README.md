@@ -12,11 +12,11 @@
 
 ### Interactive Notebooks (Google Colab)
 
-**- Experiment 1 (Without Time Features):** 
+* **Experiment 1 (Without Time Features):** 
 
 **Colab URL:** https://colab.research.google.com/drive/1UHSLPbnOHMNUB3gnyCHp-f0BcrGyM0G4 
 
-**- Experiment 2 (With Time Features Included):**
+* **Experiment 2 (With Time Features Included):**
 
 **Colab URL:** https://colab.research.google.com/drive/1SenDbRpua2glpqv-FpaG851gmQbxyEKD
 
