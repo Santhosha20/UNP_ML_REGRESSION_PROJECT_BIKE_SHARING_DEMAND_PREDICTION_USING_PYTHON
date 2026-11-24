@@ -22,13 +22,13 @@
 
 ### Documentation & Data
 
-**- Project Presentation Link:** 
+* **Project Presentation Link:** 
 https://docs.google.com/presentation/d/10Kw8RFW7m2bmFHBiwKsigRC3nsbb0neh/edit?usp=sharing&ouid=116368063423906871146&rtpof=true&sd=true
 
-**- Dataset Link:**
+* **Dataset Link:**
 https://drive.google.com/file/d/19rhr1WkBefRU_v5qiF8ihiMczy5Oifon/view?usp=sharing
 
-**- Dataset Details Link:**
+* **Dataset Details Link:**
 https://drive.google.com/file/d/1J2CIoda3w8jMzBgFNCF1mKolh39jDSKn/view?usp=sharing
 
 ---
